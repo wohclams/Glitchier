@@ -4,20 +4,27 @@ class FolderTree {
 		this.flatList = [];
 	}
 
+	isGoodPath(path) {
+		if (path==="" || path===".glitch-assets") {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
 	addFileFromNode(node) {
 		let filePath = node.title;
-		if (node.title==="") {return;} // for now? once we have a working mutationobserver hooked up to delete, thsi shouldnt' be necesary
-		if (node.title===".glitch-assets") {return;}
-		//let isCurrentlyHidden = node.classList.contains("hidden");
-		this.parsePath(filePath);
-		this.flatList.push(filePath);
+		if (this.isGoodPath(filePath)) {
+			this.parsePath(filePath);
+			this.flatList.push(filePath);
+		}
 	}
 
 	addFileFromPath(path) {
-		if (path==="") {return;} // for now? once we have a working mutationobserver hooked up to delete, thsi shouldnt' be necesary
-		if (path===".glitch-assets") {return;}
-		this.parsePath(path);
-		this.flatList.push(path);
+		if (this.isGoodPath(path)) {
+			this.parsePath(path);
+			this.flatList.push(path);
+		}
 	}
 
 	setVisibilityByPath(path, hidden) {

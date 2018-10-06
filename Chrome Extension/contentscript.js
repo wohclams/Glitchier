@@ -1,6 +1,4 @@
 
-
-
 var filetreeUl = document.querySelector(".filetree");
 
 var config = { childList: true };
@@ -33,8 +31,9 @@ function fileListChanged(mutationsList, observer) {
 	let fileLis = Array.from(filetreeUl.querySelectorAll(".file"));
 	let newFlatList = [];
 	for (let i=0;i<fileLis.length;i++) {
-		if (fileLis[i].title==="" || fileLis[i].title===".glitch-assets") {continue;}
-		newFlatList.push(fileLis[i].title);
+		if (fT.isGoodPath(fileLis[i].title)) {
+					newFlatList.push(fileLis[i].title);
+		}
 	}
 
 	let toBeRemoved = fT.flatList.filter(function(i) {return newFlatList.indexOf(i) < 0;});
@@ -91,7 +90,6 @@ function render() {
 
 	let list = document.querySelector('.filetree');
 
-	//console.log(fileTree);
 	let fileTree = fT.folderTree.slice();
 	recursiveFolderBuilder(list,fileTree);
 
@@ -120,8 +118,6 @@ function toggleFolder(target) {
 		let child = node.children[i];
 		child.hidden = !child.hidden;
 	}
-
-
 	renderVisibleState(fT.folderTree);
 
 }
@@ -146,26 +142,6 @@ function renderVisibleState(folderTree) {
 		}
 	}
 
-	// for (let path in pathHiddenStateList) {
-	// 	let  pathHiddenState = pathHiddenStateList[path];
-	//
-	// 	let folderElement = document.querySelector('[title="' + path + '"]');
-	// 	if (folderElement===null) {
-	// 		continue;
-	// 	}
-	//
-	// 	var cN = folderElement.querySelectorAll('li');
-	//
-	// 		for (let i=0;i<cN.length;i++) {
-	// 			let node = cN[i];
-	// 			if (pathHiddenState) {
-	// 				node.classList.add('hidden');
-	// 			} else {
-	// 				node.classList.remove('hidden');
-	// 			}
-	// 		}
-	//
-	// }
 }
 
 function recursiveFolderBuilder(parent, folderTree) {
