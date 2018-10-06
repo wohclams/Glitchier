@@ -1,0 +1,44 @@
+.clamz-extension-folder {
+	font-family: Menlo, Consolas, Monaco, "Lucida Console", Monospace;
+	font-style: italic;
+	color: #727272;
+	cursor: pointer;
+	list-style-type: none;
+	margin-left: 20px;
+}
+
+.clamz-extension-folder .filename {
+	color: #222;
+	font-style: normal;
+}
+
+.clamz-extension-folder .extension-type {
+	font-style: normal;
+}
+
+.clamz-extension-folder li.active .filename  {
+	color: #fff;
+}
+
+.clamz-extension-folder-img {
+	float: left;
+	margin-top: 4px;
+	margin-right: 6px;
+	padding-left: 5px;
+}
+
+.clamz-extension-folder-label {
+
+	display: block;
+}
+
+.clamz-extension-folder-label:hover {
+	background: #eee;
+	border-radius: 3px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.clamz-folder-hidden {
+	display: none;
+}

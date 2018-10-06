@@ -1,0 +1,21 @@
+
+// add delete capability. on file delete, remove from fT.folderTree. clean up folders if all files are removed. etc.
+
+// see if mutation oberserver can be set to exlude our actions
+
+// save open/closed state to localstorage - but then what do we do if it is out of sync when we reload?
+
+
+// self.application.setEditorOption for tabs? indentWithTabs=true
+//self.application.setEditorOption("indentUnit",4); this works to change to 4 spaces
+// this works via dom!
+//var codemirrordiv = document.querySelector('.CodeMirror');
+//codemirrordiv.CodeMirror.options
+// https://github.com/codemirror/CodeMirror/issues/988
+// //  const betterTab = function() {
+//     if (editor.somethingSelected()) {
+//       return editor.indentSelection("add");
+//     } else {
+//       return editor.replaceSelection(Array(editor.getOption("indentUnit") + 1).join(" "), "end", "+input");
+//     }
+//   };

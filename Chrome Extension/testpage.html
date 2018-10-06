@@ -1,0 +1,63 @@
+<html>
+<body>
+	<ul id="inputList">
+		<li title="radiostar/main.py"></li>
+		<li title="radiostar/views/test.py"></li>
+		<li title="radiostar/views/different.py"></li>
+		<li title="onlyone/alright/fakefile.py"></li>
+		<li title="radiostar/urls/urls.py"></li>
+		<li title="requirements.txt"></li>
+	</ul>
+
+<ul id="tobeadded">
+	<li title="radiostar/views/another/tasks.py"></li>
+</ul>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tree-model/1.0.7/TreeModel-min.js"></script>
+<script src="foldertree.js"></script>
+<script>
+var inputList = document.querySelector('#inputList');
+
+var folderTree = new FolderTree();
+
+for (var node of inputList.children) {
+	folderTree.addFileFromNode(node);
+}
+
+console.log(folderTree.folderTree);
+
+folderTree.setVisibilityByPath("radiostar/views/", true);
+
+console.log(folderTree.folderTree);
+
+var toBeAddedList = document.querySelector('#tobeadded');
+var toBeAddedFile = toBeAddedList.children[0];
+
+//folderTree.addFileFromNode(toBeAddedFile);
+
+console.log(folderTree.folderTree);
+
+folderTree.deleteFileByPath("onlyone/alright/fakefile.py");
+
+console.log(folderTree.folderTree);
+// let file = folderTree.findFileByPath('radiostar/views/different.py');
+// console.log(file);
+
+// var tree = new TreeModel();
+//
+// var root = tree.parse({name: 'root', children: folderTree.folderTree});
+//
+// var node12 = root.first(function (node) {
+// 	return node.model.fullpath === "radiostar/views/different.py";
+// });
+//
+// console.log(node12.model);
+// sleep time expects milliseconds
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
+</script>
+
+</html>

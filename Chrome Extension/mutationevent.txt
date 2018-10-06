@@ -1,0 +1,166 @@
+addedNodes: NodeList [li.file.logic]
+attributeName: null
+attributeNamespace: null
+nextSibling: null
+oldValue: null
+previousSibling: li.file.view
+removedNodes: NodeList []
+target: ul.filetree
+type: "childList"
+
+
+
+
+
+
+
+
+addedNodes: NodeList(1)
+0: li.file.logic
+accessKey: ""
+assignedSlot: null
+attributeStyleMap: StylePropertyMap {size: 0}
+attributes: NamedNodeMap {0: class, 1: title, class: class, title: title, length: 2}
+autocapitalize: ""
+baseURI: "https://glitch.com/edit/#!/extension-test"
+childElementCount: 5
+childNodes: NodeList(5) [div.current-users, div.rewind-state.hidden, div.display-file-name, input.file-rename-input.hidden, div.options.icon.opens-pop-over]
+children: HTMLCollection(5) [div.current-users, div.rewind-state.hidden, div.display-file-name, input.file-rename-input.hidden, div.options.icon.opens-pop-over]
+classList: DOMTokenList(2) ["file", "logic", value: "file logic"]
+className: "file logic"
+clientHeight: 19
+clientLeft: 0
+clientTop: 0
+clientWidth: 304
+contentEditable: "inherit"
+dataset: DOMStringMap {}
+dir: ""
+draggable: false
+firstChild: div.current-users
+firstElementChild: div.current-users
+hidden: false
+id: ""
+innerHTML: "<div class="current-users"></div><div class="rewind-state hidden"><div class="rewind-state-icon"><div class="mixed-lines-background"></div></div></div><div class="display-file-name"><span class="folder-path"></span><span class="filename">script</span><span class="extension-type logic">.js</span></div><input class="file-rename-input hidden"><div class="options icon opens-pop-over"></div>"
+innerText: "script.js"
+inputMode: ""
+isConnected: true
+isContentEditable: false
+lang: ""
+lastChild: div.options.icon.opens-pop-over
+lastElementChild: div.options.icon.opens-pop-over
+localName: "li"
+namespaceURI: "http://www.w3.org/1999/xhtml"
+nextElementSibling: li.file.style
+nextSibling: li.file.style
+nodeName: "LI"
+nodeType: 1
+nodeValue: null
+nonce: ""
+offsetHeight: 19
+offsetLeft: 20
+offsetParent: section#sidebar.sidebar
+offsetTop: 302
+offsetWidth: 304
+onabort: null
+onauxclick: null
+onbeforecopy: null
+onbeforecut: null
+onbeforepaste: null
+onblur: null
+oncancel: null
+oncanplay: null
+oncanplaythrough: null
+onchange: null
+onclick: null
+onclose: null
+oncontextmenu: null
+oncopy: null
+oncuechange: null
+oncut: null
+ondblclick: null
+ondrag: null
+ondragend: null
+ondragenter: null
+ondragleave: null
+ondragover: null
+ondragstart: null
+ondrop: null
+ondurationchange: null
+onemptied: null
+onended: null
+onerror: null
+onfocus: null
+ongotpointercapture: null
+oninput: null
+oninvalid: null
+onkeydown: null
+onkeypress: null
+onkeyup: null
+onload: null
+onloadeddata: null
+onloadedmetadata: null
+onloadstart: null
+onlostpointercapture: null
+onmousedown: null
+onmouseenter: null
+onmouseleave: null
+onmousemove: null
+onmouseout: null
+onmouseover: null
+onmouseup: null
+onmousewheel: null
+onpaste: null
+onpause: null
+onplay: null
+onplaying: null
+onpointercancel: null
+onpointerdown: null
+onpointerenter: null
+onpointerleave: null
+onpointermove: null
+onpointerout: null
+onpointerover: null
+onpointerup: null
+onprogress: null
+onratechange: null
+onreset: null
+onresize: null
+onscroll: null
+onsearch: null
+onseeked: null
+onseeking: null
+onselect: null
+onselectstart: null
+onstalled: null
+onsubmit: null
+onsuspend: null
+ontimeupdate: null
+ontoggle: null
+onvolumechange: null
+onwaiting: null
+onwebkitfullscreenchange: null
+onwebkitfullscreenerror: null
+onwheel: null
+outerHTML: "<li class="file logic" title="script.js"><div class="current-users"></div><div class="rewind-state hidden"><div class="rewind-state-icon"><div class="mixed-lines-background"></div></div></div><div class="display-file-name"><span class="folder-path"></span><span class="filename">script</span><span class="extension-type logic">.js</span></div><input class="file-rename-input hidden"><div class="options icon opens-pop-over"></div></li>"
+outerText: "script.js"
+ownerDocument: document
+parentElement: ul.filetree
+parentNode: ul.filetree
+prefix: null
+previousElementSibling: li.file.view
+previousSibling: li.file.view
+scrollHeight: 19
+scrollLeft: 0
+scrollTop: 0
+scrollWidth: 304
+shadowRoot: null
+slot: ""
+spellcheck: true
+style: CSSStyleDeclaration {alignContent: "", alignItems: "", alignSelf: "", alignmentBaseline: "", all: "", …}
+tabIndex: -1
+tagName: "LI"
+textContent: "script.js"
+title: "script.js"
+translate: true
+type: ""
+value: 0
