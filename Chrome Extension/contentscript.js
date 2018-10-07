@@ -39,10 +39,10 @@ function fileListChanged(mutationsList, observer) {
 	let toBeRemoved = fT.flatList.filter(function(i) {return newFlatList.indexOf(i) < 0;});
 	let toBeAdded = newFlatList.filter(function(i) {return fT.flatList.indexOf(i) < 0;});
 
-	console.log("To be removed: ");
-	console.log(toBeRemoved);
-	console.log("To be added: ");
-	console.log(toBeAdded);
+	// console.log("To be removed: ");
+	// console.log(toBeRemoved);
+	// console.log("To be added: ");
+	// console.log(toBeAdded);
 
 	for (let i=0;i<toBeRemoved.length;i++) {
 		fT.deleteFileByPath(toBeRemoved[i]);
