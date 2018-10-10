@@ -28,11 +28,21 @@ function fileListChanged(mutationsList, observer) {
 	// 	}
 	// }
 
+
+
+	loadAllFiles();
+
+	sleep(100).then(() => {
+		render();
+	});
+}
+
+function loadAllFiles() {
 	let fileLis = Array.from(filetreeUl.querySelectorAll(".file"));
 	let newFlatList = [];
 	for (let i=0;i<fileLis.length;i++) {
 		if (fT.isGoodPath(fileLis[i].title)) {
-					newFlatList.push(fileLis[i].title);
+			newFlatList.push(fileLis[i].title);
 		}
 	}
 
@@ -51,25 +61,10 @@ function fileListChanged(mutationsList, observer) {
 		fT.addFileFromPath(toBeAdded[i]);
 	}
 
-
-	//loadAllFiles();
-
-	sleep(100).then(() => {
-		render();
-	});
 }
 
-// function loadAllFiles() {
-// 	let fileLis = Array.from(filetreeUl.querySelectorAll(".file"));
-//
-// 	for (i=0;i<fileLis.length;i++) {
-// 		fT.addFileFromNode(fileLis[i]);
-// 	}
-// }
-
 function projectChanged(mutationsList, observer) {
-	console.log("project changed!!!!!!!!!!!!!!!!!!!!!");
-	console.log(mutationsList);
+	//console.log(mutationsList);
 
 	for (let i=0;i<mutationsList.length;i++) {
 		if (mutationsList[i].addedNodes.length>0) {
@@ -78,6 +73,7 @@ function projectChanged(mutationsList, observer) {
 		if (mutationsList[i].removedNodes.length>0) {
 			cleanUp();
 			fT.folderTree = [];
+			fT.flatList = [];
 		}
 	}
 
@@ -157,7 +153,7 @@ function recursiveFolderBuilder(parent, folderTree) {
 
 			var folderImage = document.createElement('img');
 			// https://feathericons.com/
-			folderImage.src = chrome.extension.getURL("folder.svg");
+			folderImage.src = chrome.extension.getURL("images/folder.svg");
 			folderImage.classList.add('clamz-extension-folder-img');
 			folderImage.height = "13";
 			folderImage.width = "18";
