@@ -1,6 +1,6 @@
 ## Glitchier
 
-A (Chrome only, for now) browser extension that adds extra functionality and options for [glitch.com](https://glitch.com), including collapsable folders in the file list.
+A (Chrome only, for now) browser extension that adds extra functionality and options for [Glitch](https://glitch.com), including collapsable folders in the file list.
 
 Still work-in-progress and not yet submitted to the Chrome Store. Feel free to download and "Load unpacked" to install locally.
 
