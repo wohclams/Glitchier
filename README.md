@@ -11,3 +11,4 @@ Still work-in-progress and not yet submitted to the Chrome Store. Feel free to d
 * Persist folder state
 * Configurable spaces vs tabs options for Glitch editor
 * Option to show/hide the full file path for files within folders.
+* If possible, option to remember scroll position for files https://support.glitch.com/t/editing-code-always-reverts-back-to-top-of-file/5848
