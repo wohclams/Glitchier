@@ -2,6 +2,7 @@ class FolderTree {
 	constructor() {
 		this.folderTree = [];
 		this.flatList = [];
+		this.projectId = "";
 	}
 
 	isGoodPath(path) {

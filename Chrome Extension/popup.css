@@ -1,0 +1,57 @@
+body {
+	width: 500px;
+	height: 400px;
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	border-top: solid 8px #42FFEB;
+	background: #fff;
+	color: #222;
+	padding: 10px 20px 10px 20px;
+}
+
+header h1 {
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	color: #222;
+}
+
+main {
+	margin: 0px 20px 20px 20px;
+}
+
+h4 {
+	font-size: 14px;
+	text-transform: uppercase;
+	border-top: solid 1px #bbb;
+	color: #bbb;
+	padding-top: 4px;
+	font-weight: normal;
+	margin: 16px 0 8px 0;
+}
+
+main ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+main ul li {
+	font-size: 18px;
+	padding: 4px 0px 4px 0px;
+}
+
+main ul.indent li {
+	margin-left: 28px;
+}
+
+.label {
+	padding: 4px 8px 4px 4px;
+}
+
+.label:hover {
+	background: #eee;
+}

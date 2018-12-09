@@ -1,8 +1,58 @@
 <html>
 <head>
-
+<link href="popup.css" rel="stylesheet" media="all">
 </head>
 <body>
-	<p>Settings coming soon...</p>
+	<header><h1>Glitchier</h1></header>
+	<!-- one option for toggle switch from https://eddyerburgh.me/create-a-css-only-flip-toggle-switch -->
+	<main>
+		<form id="prefsForm">
+		<h4>Folders</h4>
+		<ul>
+			<li><label class="label" for="folder-toggle-checkbox">
+				<input id="folder-toggle-checkbox" class="checkbox" type="checkbox"/>
+				Enable nested, collapsable folders</label>
+				<ul class="indent">
+					<li><label class="label" for="fullfilename-toggle-checkbox">
+						<input id="fullfilename-toggle-checkbox" class="checkbox" type="checkbox"/>
+						Show full file path in filenames</label>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<h4>Tabs/Spaces</h4>
+		<ul>
+			<li><label class="label" for="spacestabs-toggle-checkbox">
+				<input id="spacestabs-toggle-checkbox" class="checkbox" type="checkbox"/>
+				Modify default spaces/tabs</label>
+			</li>
+			<ul class="indent">
 
+				<li>
+						<label class="label" for="tabs-radio-button">
+					<input type="radio" id="tabs-radio-button" name="tabs-spaces" value="tabs" />
+					Tabs</label>
+					<label class="label" for="spaces-radio-button">
+						<input type="radio" id="spaces-radio-button" name="tabs-spaces" value="spaces" />
+						Spaces</label>
+				</li>
+				<li>
+					<label class="label" for="number-of-spaces-textbox">
+				<input type="number" id="number-of-spaces-textbox" name="number-of-spaces-textbox" />
+				# of spaces in a tab</label>
+				</li>
+			</ul>
+		</ul>
+		<h4>Other</h4>
+		<ul>
+			<li><label class="label" for="remember-linenum-checkbox">
+				<input id="remember-linenum-checkbox" class="checkbox" type="checkbox"/>
+				Remember working line number in each file</label>
+			</li>
+		</ul>
+	</form>
+	</main>
+
+<script src="defaultsettings.js"></script>
+<script src="popup.js"></script>
 </html>

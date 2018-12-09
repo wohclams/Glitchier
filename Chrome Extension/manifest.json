@@ -10,7 +10,7 @@
 		{
 			"matches": ["https://glitch.com/edit/*"],
 			"css": ["contentstyles.css"],
-			"js": ["foldertree.js","contentscript.js"]
+			"js": ["defaultsettings.js", "foldertree.js","contentscript.js"]
 		}
 	],
 	"web_accessible_resources": [
@@ -22,5 +22,8 @@
 		},
 		"default_title": "Glitchier",
 		"default_popup": "popup.html"
-	}
+	},
+	"permissions": [
+		"storage"
+	]
 }

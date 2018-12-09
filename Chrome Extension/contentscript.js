@@ -1,4 +1,19 @@
 
+
+var settings = {};
+
+initialize();
+
+function initialize() {
+	chrome.storage.sync.get({settings: DEFAULT_SETTINGS}, function(result) {
+		settings = result.settings;
+		//migrateSettings(settings.currentVersion);
+		chrome.storage.sync.set({settings: settings}, function() {
+			
+		});
+	});
+}
+
 var filetreeUl = document.querySelector(".filetree");
 
 var config = { childList: true };
@@ -15,6 +30,7 @@ var filesSection = document.querySelector('section .files');
 filesSection.addEventListener('click',clickedAFile);
 
 var fT = new FolderTree();
+var projectId = getProjectId();
 
 function fileListChanged(mutationsList, observer) {
 	//console.log(mutationsList);
@@ -28,13 +44,15 @@ function fileListChanged(mutationsList, observer) {
 	// 	}
 	// }
 
+	updateEverything();
 
+}
 
-	loadAllFiles();
-
-	sleep(100).then(() => {
+function updateEverything() {
+	if (settings.enableFolders) {
+		loadAllFiles();
 		render();
-	});
+	}
 }
 
 function loadAllFiles() {
@@ -64,11 +82,18 @@ function loadAllFiles() {
 }
 
 function projectChanged(mutationsList, observer) {
-	//console.log(mutationsList);
+	console.log(mutationsList);
+
+	let newProjectId = getProjectId();
+	if (projectId !== newProjectId) {
+		//console.log("PROJECT CHANGED ============================= ");
+		projectId = newProjectId;
+	}
 
 	for (let i=0;i<mutationsList.length;i++) {
 		if (mutationsList[i].addedNodes.length>0) {
 			loadAllFiles();
+			render();
 		}
 		if (mutationsList[i].removedNodes.length>0) {
 			cleanUp();
@@ -77,8 +102,22 @@ function projectChanged(mutationsList, observer) {
 		}
 	}
 
-	//cleanUp():
 }
+
+function getProjectId() {
+	// a hack to get what seems to be a non-changing project guid... from the only place it seems to appears in the page
+	var downloadLink = document.querySelector("a[href^='https://api.glitch.com/project/download/']");
+
+	var queryParams = downloadLink.search.split('&');
+	for (let i = 0; i < queryParams.length; i++) {
+		var pair = queryParams[i].split('=');
+		if (pair[0]==="projectId") {
+			return decodeURIComponent(pair[1]);
+		}
+	}
+
+}
+
 
 function render() {
 
@@ -96,6 +135,17 @@ function render() {
 	// sidebarFiles.style.overflowX = "auto";
 
 	renderVisibleState(fT.folderTree);
+
+	// set the folder paths hidden or not
+	let folderPaths = document.querySelectorAll('.folder-path');
+	for (let i=0;i<folderPaths.length;i++) {
+		if (settings.hideFilePaths) {
+			folderPaths[i].classList.add('hidden');
+		} else {
+			folderPaths[i].classList.remove('hidden');
+		}
+	}
+
 
 	observer.observe(filetreeUl, config);
 
@@ -171,6 +221,7 @@ function recursiveFolderBuilder(parent, folderTree) {
 			var listItem = document.querySelector('[title="' + file.fullpath + '"]');
 			if (listItem != null) {
 				parent.appendChild(listItem);
+
 			}
 		}
 	}
@@ -181,6 +232,12 @@ function cleanUp() {
 	let allFiles = document.querySelectorAll('li.file');
 	for (let i=0;i<allFiles.length;i++) {
 		filetreeUl.append(allFiles[i]);
+		allFiles[i].classList.remove('hidden');
+		// clean up hidden folder paths
+		let thisFilePath = allFiles[i].querySelector('.folder-path');
+		if (thisFilePath) {
+			thisFilePath.classList.remove('hidden');
+		}
 	}
 	let allFolders = document.querySelectorAll('.clamz-extension-folder');
 	for (let i=0;i<allFolders.length;i++) {
@@ -190,7 +247,12 @@ function cleanUp() {
 }
 
 
-// sleep time expects milliseconds
-function sleep (time) {
-  return new Promise((resolve) => setTimeout(resolve, time));
-}
+chrome.storage.onChanged.addListener(function(changes, areaName) {
+	if ('settings' in changes) {
+		settings = changes.settings.newValue;
+		cleanUp();
+		fT.folderTree = [];
+		fT.flatList = [];
+		updateEverything();
+	}
+});
