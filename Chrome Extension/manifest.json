@@ -14,7 +14,8 @@
 		}
 	],
 	"web_accessible_resources": [
-		"images/folder.svg"
+		"images/folder.svg",
+		"injectedscript.js"
 	],
 	"browser_action": {
 		"default_icon": {

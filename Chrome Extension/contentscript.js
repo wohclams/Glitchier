@@ -1,4 +1,10 @@
-
+var s = document.createElement('script');
+// TODO: add "script.js" to web_accessible_resources in manifest.json
+s.src = chrome.runtime.getURL('injectedscript.js');
+s.onload = function() {
+	this.remove();
+};
+(document.head || document.documentElement).appendChild(s);
 
 var settings = {};
 
@@ -9,7 +15,7 @@ function initialize() {
 		settings = result.settings;
 		//migrateSettings(settings.currentVersion);
 		chrome.storage.sync.set({settings: settings}, function() {
-			
+
 		});
 	});
 }
@@ -52,6 +58,18 @@ function updateEverything() {
 	if (settings.enableFolders) {
 		loadAllFiles();
 		render();
+	}
+	if (settings.modifyTabs) {
+		document.dispatchEvent(new CustomEvent('GlitchierCustomEvent', { detail: settings }));
+
+		// console.log("modifyingtabs now");
+		// var codemirrordiv = document.querySelector('.CodeMirror');
+		// console.log(codemirrordiv);
+		// console.log(codemirrordiv.CodeMirror);
+		// codemirrordiv.CodeMirror.options.indentWithTabs = !settings.tabsAreSpaces;
+		// codemirrordiv.CodeMirror.options.tabSize = settings.tabSpaceCount;
+		// codemirrordiv.CodeMirror.options.indentUnit = settings.tabSpaceCount;
+		// console.log(codemirrordiv.CodeMirror.options);
 	}
 }
 
@@ -250,6 +268,7 @@ function cleanUp() {
 chrome.storage.onChanged.addListener(function(changes, areaName) {
 	if ('settings' in changes) {
 		settings = changes.settings.newValue;
+		console.log(settings);
 		cleanUp();
 		fT.folderTree = [];
 		fT.flatList = [];

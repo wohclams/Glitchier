@@ -43,6 +43,7 @@ function readFormToSettings() {
 	if (settings.tabSpaceCount == "") {
 		settings.tabSpaceCount = 0;
 	}
+	settings.showInvisibles = document.querySelector('#showinvisibles-toggle-checkbox').checked;
 	settings.rememberLineNumbers = document.querySelector('#remember-linenum-checkbox').checked;
 }
 
@@ -56,6 +57,9 @@ function renderForm() {
 		document.querySelector('#tabs-radio-button').checked = true;
 	}
 	document.querySelector('#number-of-spaces-textbox').value = settings.tabSpaceCount;
+
+	document.querySelector('#showinvisibles-toggle-checkbox').checked = settings.showInvisibles;
+
 	document.querySelector('#remember-linenum-checkbox').checked = settings.rememberLineNumbers;
 
 	document.querySelector('#spaces-radio-button').disabled = !settings.modifyTabs;

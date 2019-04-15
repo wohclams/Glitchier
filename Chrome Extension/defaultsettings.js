@@ -5,6 +5,7 @@ var DEFAULT_SETTINGS = {
 	modifyTabs: false,
 	tabsAreSpaces: true,
 	tabSpaceCount: 2,
+	showInvisibles: false,
 	rememberLineNumbers: false
 }
 
